@@ -924,8 +924,8 @@ module Aws
                 redirect_detected = true
             else
                 # no, it's an error ...
-                @aws.logger.warn("##### #{@aws.class.name} returned an error: #{response.code} #{response.message}\n#{response.body} #####")
-                @aws.logger.warn("##### #{@aws.class.name} request: #{request_text_data} ####")
+                Rails.logger.warn("##### #{@aws.class.name} returned an error: #{response.code} #{response.message}\n#{response.body} #####")
+                Rails.logger.warn("##### #{@aws.class.name} request: #{request_text_data} ####")
             end
             # Check response body: if it is an Amazon XML document or not:
             if redirect_detected || (response.body && response.body[/<\?xml/]) # ... it is a xml document
